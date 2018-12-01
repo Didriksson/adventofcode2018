@@ -33,7 +33,6 @@ func iterateList(currentFreq int, seenFreqs map[int]bool) int {
 			os.Exit(0)
 		}
 		seenFreqs[currentFreq] = true
-		fmt.Println(currentFreq)
 	}
 	return currentFreq
 }
