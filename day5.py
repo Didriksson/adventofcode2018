@@ -10,7 +10,14 @@ def taBortBokstavsskillnad(line):
                     break
     return line
 
+def taBortAllaForekomster(bokstav, line):
+    lower = bokstav.lower()
+    upper = bokstav.upper()
+    return line.replace(lower, "").replace(upper, "")
+
 if __name__ == '__main__':
     f = open("day5.txt", "r")
-    for l in f.readlines():
-        print(len(taBortBokstavsskillnad(l.rstrip())))
+    line = f.readline().rstrip()
+    print("Warning! If you are using this on real input - go for a coffee!")
+    print("Part 1:", len(taBortBokstavsskillnad(line)))
+    print("Part 2:", min([len(taBortBokstavsskillnad(taBortAllaForekomster(it, line))) for it in "ABCDEFGHIJKLMNOPQRSTUVXYZ"]))   
